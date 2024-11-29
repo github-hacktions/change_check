@@ -7,10 +7,12 @@ inputs:
 outputs:
   changes_detected:
     description: "Indicates whether changes were detected"
+    value: ${{ steps.check-changes.outputs.changes_detected }}
 runs:
   using: "composite"
   steps:
     - name: Check changes
+      id: check-changes
       run: |
         FOLDERS_TO_CHECK=(${{ inputs.folders }})
         CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
