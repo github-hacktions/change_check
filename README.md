@@ -1,7 +1,8 @@
 # Folder Change Detector Action
-[![GitHub release](https://img.shields.io/github/v/release/yourusername/folder-change-detector-action)](https://github.com/yourusername/folder-change-detector-action/releases)
-[![Build Status](https://github.com/yourusername/folder-change-detector-action/actions/workflows/test.yml/badge.svg)](https://github.com/yourusername/folder-change-detector-action/actions)
-[![License](https://img.shields.io/github/license/yourusername/folder-change-detector-action)](./LICENSE)
+
+[![GitHub release](https://img.shields.io/github/v/release/github-hacktions/change_check)](https://github.com/github-hacktions/change_check/releases)
+[![Build Status](https://github.com/github-hacktions/change_check/actions/workflows/test.yml/badge.svg)](https://github.com/github-hacktions/change_check/actions)
+[![License](https://img.shields.io/github/license/github-hacktions/change_check)](./LICENSE)
 
 
 # Check Changes in Folders
