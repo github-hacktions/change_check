@@ -1,8 +1,8 @@
-name: "Check Changes in Folders"
+name: "Check Folders for changes in last commit"
 description: "Checks if the last commit contains changes in specified folders"
 inputs:
   folders:
-    description: "Comma-separated list of folders to check for changes"
+    description: "Comma-separated list of folders to check"
     required: true
 outputs:
   changes_detected:
@@ -10,9 +10,16 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Run change detection script
+    - name: Check changes
       run: |
-        chmod +x ./check-changes.sh
-        ./check-changes.sh "${{ inputs.folders }}"
+        FOLDERS_TO_CHECK=(${{ inputs.folders }})
+        CHANGED_FILES=$(git diff-tree --no-commit-id --name-only -r HEAD)
+        for folder in "${FOLDERS_TO_CHECK[@]}"; do
+          if echo "$CHANGED_FILES" | grep -q "^$folder/"; then
+            echo "changes_detected=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+        done
+        echo "changes_detected=false" >> "$GITHUB_OUTPUT"
       shell: bash
 
