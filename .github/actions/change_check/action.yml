@@ -1,0 +1,18 @@
+name: "Check Changes in Folders"
+description: "Checks if the last commit contains changes in specified folders"
+inputs:
+  folders:
+    description: "Comma-separated list of folders to check for changes"
+    required: true
+outputs:
+  changes_detected:
+    description: "Indicates whether changes were detected"
+runs:
+  using: "composite"
+  steps:
+    - name: Run change detection script
+      run: |
+        chmod +x ./check-changes.sh
+        ./check-changes.sh "${{ inputs.folders }}"
+      shell: bash
+
