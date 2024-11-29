@@ -1,0 +1,23 @@
+name: Test Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Test Folder Changes
+        id: test
+        run: |
+          mkdir -p folder1
+          echo "test" > folder1/test.txt
+          git add folder1/test.txt
+          git commit -m "Add test file"
+          ./check-changes.sh "folder1,folder2"

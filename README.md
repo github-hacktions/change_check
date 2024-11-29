@@ -1,3 +1,9 @@
+# Folder Change Detector Action
+[![GitHub release](https://img.shields.io/github/v/release/yourusername/folder-change-detector-action)](https://github.com/yourusername/folder-change-detector-action/releases)
+[![Build Status](https://github.com/yourusername/folder-change-detector-action/actions/workflows/test.yml/badge.svg)](https://github.com/yourusername/folder-change-detector-action/actions)
+[![License](https://img.shields.io/github/license/yourusername/folder-change-detector-action)](./LICENSE)
+
+
 # Check Changes in Folders
 
 This custom GitHub Action checks if the last commit contains changes in specified folders.
