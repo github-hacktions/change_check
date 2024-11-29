@@ -19,9 +19,12 @@ runs:
         for folder in "${FOLDERS_TO_CHECK[@]}"; do
           if echo "$CHANGED_FILES" | grep -q "^$folder/"; then
             echo "changes_detected=true" >> "$GITHUB_OUTPUT"
+            folder_check="true"
             exit 0
           fi
         done
-        echo "changes_detected=false" >> "$GITHUB_OUTPUT"
+        if [ "${folder_check}" != "true" ]; then 
+           echo "changes_detected=false" >> "$GITHUB_OUTPUT"
+        fi
       shell: bash
 
