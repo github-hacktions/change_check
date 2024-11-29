@@ -16,8 +16,13 @@ jobs:
       - name: Test Folder Changes
         id: test
         run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          
           mkdir -p folder1
+          
           echo "test" > folder1/test.txt
           git add folder1/test.txt
           git commit -m "Add test file"
+          
           ./check-changes.sh "folder1,folder2"
